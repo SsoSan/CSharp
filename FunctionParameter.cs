@@ -1,0 +1,21 @@
+using UnityEngine;
+
+//Parameter(매개변수)
+public class FunctionParameter : MonoBehaviour
+{
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        // [2] 매개변수가 있는 함수 호출(사용)
+        ShowMessage("반갑농");
+
+        ShowMessage("안냐루");
+    }
+
+    // [1] 매개변수가 있는 함수 선언(정의)
+    // 매개변수를 통해 들어온 문자열을 출력
+    void ShowMessage(string message)
+    {
+        Debug.Log(message);
+    }
+}
