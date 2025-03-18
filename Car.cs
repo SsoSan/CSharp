@@ -1,23 +1,35 @@
 using UnityEngine;
 
-namespace PrivatePublic
+namespace Constructor
 {
     public class Car
     {
-        // 필드(전역변수, 멤버변수) 선언 - Public, Private
-        public string name; // 이름
-        private int age;    // 나이
-        string address;     // 접근제한자가 생략되면 기본값인 private으로 설정
+        // 필드
+        private string color;
 
-        // 멤버 메서드 - Public, Private
-        public void Hi()
+        // 기본 생성자
+        public Car()
         {
-            Debug.Log("오하요 - 콘니치와 - 곤방와");
+            color = "흰색";
+            Debug.Log($"자동차를 {color}으로 랩핑");
         }
 
-        private void Bye()
+        // 매개변수가 있는 생성자
+        public Car(string _color)
         {
-            Debug.Log("사요나라");
+            this.color = _color;
+        }
+
+        // 메서드
+        public void Run()
+        {
+            Debug.Log($"{color} 자동차가 질주하농");
+        }
+
+        // 소멸자
+        ~Car()
+        {
+            Debug.Log($"{color} 자동차를 딜러한테 넘겼농");
         }
     }
 }
