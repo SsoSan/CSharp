@@ -1,23 +1,27 @@
 using UnityEngine;
 
-namespace Constructor
+namespace Method
 {
     public class Dog
     {
-        // [1] 필드
-        private string name;
+        // 필드 선언
+        public static int point = 10;
+        public int weight = 20;
 
-        // [2] 생성자 : 필드의 초기 값 설정
-        // 매개변수를 받아서 name 필드 값 설정
-        public Dog(string _name)
+        public void Eat()
         {
-            name = _name;
+            Debug.Log("[1] 맘마");
+            Digest();
         }
 
-        // [3] name 필드를 반환하는 메서드
-        public string Cry()
+        public static void Drink()
         {
-            return name + "가(이) 미야옹";
+            Debug.Log("[2] 우유");
+        }
+
+        private void Digest()
+        {
+            Debug.Log("[3] 간식");
         }
     }
 }
