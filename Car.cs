@@ -1,35 +1,52 @@
 using UnityEngine;
 
-namespace Constructor
+namespace Property
 {
     public class Car
     {
         // 필드
         private string color;
 
-        // 기본 생성자
+        // [1] 필드 초기화 - 인스턴스를 생성하며 생성자를 호출하려 초기화
         public Car()
         {
-            color = "흰색";
-            Debug.Log($"자동차를 {color}으로 랩핑");
+            this.color = "Black";
         }
 
-        // 매개변수가 있는 생성자
-        public Car(string _color)
+        // [2] public 메서드를 통해서 color 값에 접근
+        public void SetColor(string _color)
         {
             this.color = _color;
         }
 
-        // 메서드
-        public void Run()
+        public string GetColor()
         {
-            Debug.Log($"{color} 자동차가 질주하농");
+            return this.color;
         }
 
-        // 소멸자
-        ~Car()
+        // [3] public 속성을 통해서 color 값에 접근
+        public string Color
         {
-            Debug.Log($"{color} 자동차를 딜러한테 넘겼농");
+            get
+            {
+                 return this.color;
+            }
+            set
+            {
+                this.color = value;
+            }
         }
+        
+        // 읽기 전용 속성
+        public string Maker
+        {
+            get
+            {
+                return "LEXUS";
+            }
+        }
+
+        // 자동 속성, 축약형
+        public string Name { get; set; }
     }
 }

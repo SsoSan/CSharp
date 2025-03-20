@@ -1,25 +1,25 @@
 using UnityEngine;
 
-namespace Constructor
+namespace Property
 {
     public class Person
     {
-        // [1] 필드
+        // 필드, 멤버변수
         private string name;
 
-        // [2] 생성자
-        public Person()
+        // public한 Property(속성)를 이용하여 private한 필드(name)에 접근
+        public string Name
         {
-            name = "홍길동";
+            get { return name; }
+            set { name = value; }
         }
 
-        // [3] 생성자 - 매개변수
-        public Person(string _name)
+        // public한 메서드를 이용하여 private한 필드(name)에 접근
+        public void SetName(string _name)
         {
             name = _name;
         }
 
-        // [4] 메서드 - private한 이름을 public한 메서드로 외부에서 사용 가능하도록
         public string GetName()
         {
             return name;
