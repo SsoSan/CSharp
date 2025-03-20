@@ -1,28 +1,17 @@
 using UnityEngine;
 
-namespace Property
+namespace Indexer
 {
     public class Person
     {
-        // 필드, 멤버변수
+        // 필드
         private string name;
 
-        // public한 Property(속성)를 이용하여 private한 필드(name)에 접근
-        public string Name
+        // 인덱서 : 인덱스 번호와 상관없이 name 필드 값을 읽고 씀
+        public string this[int index]
         {
             get { return name; }
             set { name = value; }
-        }
-
-        // public한 메서드를 이용하여 private한 필드(name)에 접근
-        public void SetName(string _name)
-        {
-            name = _name;
-        }
-
-        public string GetName()
-        {
-            return name;
         }
     }
 }

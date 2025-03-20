@@ -1,52 +1,40 @@
+using System.Collections;
 using UnityEngine;
 
-namespace Property
+namespace Indexer
 {
     public class Car
     {
-        // 필드
-        private string color;
+        // [1] 배열 형식의 필드
+        private string[] names;
 
-        // [1] 필드 초기화 - 인스턴스를 생성하며 생성자를 호출하려 초기화
-        public Car()
+        // [2] 생성자 - 필드 초기화
+        public Car(int length)
         {
-            this.color = "Black";
+            // 매개변수로 넘어온 길이만큼 필드 배열 형성
+            names = new string[length];
         }
 
-        // [2] public 메서드를 통해서 color 값에 접근
-        public void SetColor(string _color)
+        // 속성 : names의 길이 반환 - 읽기 전용
+        public int Length
         {
-            this.color = _color;
+            get { return names.Length; }
         }
 
-        public string GetColor()
+        // [3] 인덱서
+        public string this[int index]
         {
-            return this.color;
+            get { return names[index]; }
+            set { names[index] = value; }
         }
 
-        // [3] public 속성을 통해서 color 값에 접근
-        public string Color
+        // [4] 반복기
+        public IEnumerator GetEnumerator()
         {
-            get
+            for (int i = 0; i < names.Length; i++)
             {
-                 return this.color;
-            }
-            set
-            {
-                this.color = value;
-            }
-        }
-        
-        // 읽기 전용 속성
-        public string Maker
-        {
-            get
-            {
-                return "LEXUS";
+                yield return names[i];
             }
         }
-
-        // 자동 속성, 축약형
-        public string Name { get; set; }
     }
 }
