@@ -1,10 +1,28 @@
 using UnityEngine;
 
-namespace Property
+namespace Override
 {
-    public class Developer
+    public class Developer : System.Object
     {
-        // 속성 만들기
-        public string Name { get; set; }
+        public override string ToString()
+        {
+            return "개발자";
+        }
+    }
+
+    public class WedDeneloper : Developer
+    {
+        public override string ToString()
+        {
+            return "웹 개발자";
+        }
+    }
+
+    public class MobileDeveloper : Developer
+    {
+        public override string ToString()
+        {
+            return "모바일 개발자";
+        }
     }
 }

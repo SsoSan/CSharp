@@ -1,26 +1,33 @@
 using UnityEngine;
 
-namespace Inheritance07
+namespace Override
 {
     // 엄빠클래스
     public class Animal
     {
-        public void Eat() => Debug.Log("고항 타베마스");
+        // virtual이 표시 된 메서드 : 가상메서드
+        public virtual void Eat() => Debug.Log("Animal Eat");
     }
 
-    // 새끼클래스 : Animal 클래스를 엄빠로 지정
-    // sealed : Cat 클래스를 봉인(sealed) 클래스로 지정
-    // 최종 클래스가 되어 상속 X, 자신의 클래스를 엄빠로 지정하지 못하도록 막음
-    public sealed class Cat : Animal
+    // 새끼클래스
+    public class Dog : Animal
     {
-
+        public override void Eat()
+        {
+            Debug.Log("댕댕이가 츄베릎!");
+        }
     }
 
-    /*
-    // 새끼클래스 : Cat 클래스를 엄빠로 지정
-    public sealed class MyCat : Cat
+    // 새끼클래스
+    public class Cat : Animal
     {
-        // sealed가 붙은 클래스는 엄빠로 지정 불가능
+        public override void Eat()
+        {
+            // 엄빠메서드에서 구현 된 내용을 모두 실행
+            base.Eat();
+            
+            // 새로 추가 된 내용 실행
+            Debug.Log("우리집 고양이 츄르를 좋아해!");
+        }
     }
-     */
 }
