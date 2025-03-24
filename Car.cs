@@ -1,40 +1,19 @@
-using System.Collections;
 using UnityEngine;
 
-namespace Indexer
+namespace Inheritance05
 {
     public class Car
     {
-        // [1] 배열 형식의 필드
-        private string[] names;
+        // 필드
+        private string name;
 
-        // [2] 생성자 - 필드 초기화
-        public Car(int length)
+        // 생성자 - 매개변수를 통해 name 초기화
+        public Car(string _name)
         {
-            // 매개변수로 넘어온 길이만큼 필드 배열 형성
-            names = new string[length];
+            this.name = _name;
         }
 
-        // 속성 : names의 길이 반환 - 읽기 전용
-        public int Length
-        {
-            get { return names.Length; }
-        }
-
-        // [3] 인덱서
-        public string this[int index]
-        {
-            get { return names[index]; }
-            set { names[index] = value; }
-        }
-
-        // [4] 반복기
-        public IEnumerator GetEnumerator()
-        {
-            for (int i = 0; i < names.Length; i++)
-            {
-                yield return names[i];
-            }
-        }
+        // 메서드
+        public void Run() => Debug.Log($"{name}이(가) 달린다");
     }
 }

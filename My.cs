@@ -1,24 +1,18 @@
 using UnityEngine;
 
-namespace Constructor
+namespace Inheritance05
 {
-    public class My
+    // 새끼클래스
+    public class My : Car
     {
-        // [1] 필드 선언
-        private string name;    // 이름
-        private int age;        // 나이
-        
-        // [2] 생성자 - 이름과 나이를 매개변수로 받아 필드 초기화
-        public My(string _name, int _age)
+        public My() : this("나의 자동차")
         {
-            this.name = _name;
-            age = _age;
+
         }
 
-        // [3] 메서드
-        public void PrintMyInfo()
+        public My(string _name) : base(_name)
         {
-            Debug.Log($"이름 : {this.name}, 나이 : {this.age}");
+            
         }
     }
 }
